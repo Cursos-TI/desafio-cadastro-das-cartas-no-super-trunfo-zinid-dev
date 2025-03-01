@@ -2,16 +2,17 @@
 
 int main(){
     //Declaração das variáveis
-    char carta, carta1, codigoCarta[10], codigoCarta1[10], nomeCidade[50], nomeCidade1[50];
+    char estado[3], estado1[3], codigoCarta[10], codigoCarta1[10], nomeCidade[50], nomeCidade1[50];
     int nPontosTuristicos, nPontosTuristicos1;
     float area, area1, pib, pib1, densidade, densidade1, pibpc, pibpc1, superPoder, superPoder1;
     unsigned int populacao, populacao1;
 
     //Inserção dos dados da Carta01
     printf("Indique um Estado (use letras entre A e H para representar): \n");
-    scanf(" %c", &carta);
+    scanf(" %2s", estado);
+    getchar(); //Limpar Buffer
     printf("Dê um código para a carta (use a letra escolhida seguida de um número): \n");
-    scanf("%s", &codigoCarta);
+    scanf("%9s", codigoCarta);
     printf("Informe o nome da Cidade correspondente ao Estado: \n");
     scanf("%s", nomeCidade);
     printf("Informe a população da cidade: \n");
@@ -25,9 +26,9 @@ int main(){
 
     //Inserção dos dados da Carta02
     printf("Indique um Estado (use letras entre A e H para representar): \n");
-    scanf(" %c", &carta1);
+    scanf(" %2s", estado1);
     printf("Dê um código para a carta (use a letra escolhida seguida de um número): \n");
-    scanf("%s", &codigoCarta1);
+    scanf("%9s", codigoCarta1);
     printf("Informe o nome da Cidade correspondente ao Estado: \n");
     scanf("%s", nomeCidade1);
     printf("Informe a população da cidade: \n");
@@ -51,7 +52,7 @@ int main(){
 
     //Exibição dos dados cadastrados para a Carta01
     printf("CARTA 1 \n");
-    printf("Estado: %c \n", carta);
+    printf("Estado: %c \n", estado);
     printf("Código: %s \n", codigoCarta);
     printf("Nome da Cidade: %s \n", nomeCidade);
     printf("População: %d \n", populacao);
@@ -64,7 +65,7 @@ int main(){
 
     //Exibição dos dados cadastrados para a Carta02
     printf("CARTA 2 \n");
-    printf("Estado: %c \n", carta1);
+    printf("Estado: %c \n", estado1);
     printf("Código: %s \n", codigoCarta1);
     printf("Nome da Cidade: %s \n", nomeCidade1);
     printf("População: %d \n", populacao1);
@@ -76,7 +77,7 @@ int main(){
     printf("Super Poder: %.2f \n\n", superPoder1);
 
     //Comparação das cartas
-    int resultadoPopulacao, resultadoArea, resultadoPib, resultadoPTuristicos, resultadoDensidade, resultadoPibPC, resultadoPoder;
+    /*int resultadoPopulacao, resultadoArea, resultadoPib, resultadoPTuristicos, resultadoDensidade, resultadoPibPC, resultadoPoder;
     
     resultadoPopulacao = populacao > populacao1;
     resultadoArea = area > area1;
@@ -93,7 +94,18 @@ int main(){
     printf("Pontos Turísticos: %s\n", resultadoPTuristicos ? "Carta 1 venceu (1)" : "Carta 2 venceu (0)");
     printf("Densidade Populacional: %s\n", resultadoDensidade ? "Carta 1 venceu (1)" : "Carta 2 venceu (0)");
     printf("PIB per Capita: %s\n", resultadoPibPC ? "Carta 1 venceu (1)" : "Carta 2 venceu (0)");
-    printf("Super Poder: %s\n", resultadoPoder ? "Carta 1 venceu (1)" : "Carta 2 venceu (0)");
+    printf("Super Poder: %s\n", resultadoPoder ? "Carta 1 venceu (1)" : "Carta 2 venceu (0)");*/
+
+    //Compara de um único atributo (usando if-else)
+    printf("COMPARAÇÃO DE CARTAS (Atributo: Pontos Turísticos)\n");
+    printf("Carta 1 - %s (%c): %d \n", nomeCidade, estado, nPontosTuristicos);
+    printf("Carta 2 - %s (%c): %d \n", nomeCidade1, estado1, nPontosTuristicos1);
+    if (nPontosTuristicos > nPontosTuristicos1) {
+        printf("Resultado: Carta 1 (%s) venceu!\n", nomeCidade);
+    } else {
+        printf("Resultado: Carta 2 (%s) venceu!\n", nomeCidade1);
+    }
+    
 
     return 0;
 }
